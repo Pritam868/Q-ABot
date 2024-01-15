@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QA Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: vertical;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .conversation {
+            margin-top: 30px;
+        }
+        .message {
+            margin-bottom: 15px;
+        }
+        .user-message {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .bot-message {
+            background-color: #d9d9d9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QA Bot Application</h1>
+        <form action="/" method="post">
+            <textarea name="user_input" placeholder="Type your question here..."></textarea>
+            <input type="submit" value="Ask">
+        </form>
+        
+        {% if user_input %}
+        <div class="conversation">
+            <div class="message user-message">
+                <strong>You:</strong> {{ user_input }}
+            </div>
+            <div class="message bot-message">
+                <strong>Bot:</strong> {{ response }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
